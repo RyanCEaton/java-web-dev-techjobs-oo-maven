@@ -16,6 +16,7 @@ public class JobTests {
     private static final Job jobTwo = new Job();
     private static final Job jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     private static final Job jobFour = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    private static final Job jobFive = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
 
     // you can rename the tests, or delete them and rewrite them from scratch, but I went ahead and provided you the names of tests I created -- I followed the writeup pretty honestly
     @Test
@@ -46,12 +47,20 @@ public class JobTests {
     // you can follow TDD if you want, or you can write the implementation first and then get the tests to pass, either is a fine approach
     @Test
     public void testToStringContainsBlankLines() {
-
+        String toString = jobThree.toString();
+        Assertions.assertTrue(toString.contains("\n" + "ID: "));
+        Assertions.assertTrue((toString.contains(jobThree.getCoreCompetency() + "\n")));
     }
 
     @Test
     public void testToStringHasLabelsForEachField() {
-
+        String toString = jobThree.toString();
+        Assertions.assertTrue(toString.contains("ID: "));
+        Assertions.assertTrue(toString.contains("Name: "));
+        Assertions.assertTrue(toString.contains("Employer: "));
+        Assertions.assertTrue(toString.contains("Location: "));
+        Assertions.assertTrue(toString.contains("Position Type: "));
+        Assertions.assertTrue(toString.contains("Core Competency: "));
     }
 
     @Test

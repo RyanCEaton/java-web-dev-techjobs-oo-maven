@@ -21,7 +21,12 @@ public class Location {
     // Custom toString, equals, and hashCode methods:
 
     @Override
-    public String toString() { return this.value; }
+    public String toString() {
+        if (this.value == "") {
+            return "Data not Available";
+        }
+        return this.value;
+    }
 
     @Override
     public boolean equals(Object o) {
