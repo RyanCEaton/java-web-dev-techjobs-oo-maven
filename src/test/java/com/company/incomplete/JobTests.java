@@ -65,6 +65,6 @@ public class JobTests {
 
     @Test
     public void testToStringDataNotAvailable() {
-
+        Assertions.assertTrue(jobFive.toString().contains("Data not available"));
     }
 }
