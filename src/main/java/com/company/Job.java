@@ -45,8 +45,10 @@ public class Job {
 
     @Override
     public String toString() {
-
-        return "\n" +
+        if (employer.toString() == "Data not available" && location.toString() == "Data not available" && positionType.toString() == "Data not available" && coreCompetency.toString() == "Data not available") {
+           return "\n" + "ID: " + id + "\n" + "OOPS! This job does not seem to exist.";
+        }
+            return "\n" +
                 "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Employer: " + employer + "\n" +

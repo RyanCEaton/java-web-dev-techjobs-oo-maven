@@ -17,6 +17,7 @@ public class JobTests {
     private static final Job jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     private static final Job jobFour = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     private static final Job jobFive = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
+    private static final Job jobSix = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 
     // you can rename the tests, or delete them and rewrite them from scratch, but I went ahead and provided you the names of tests I created -- I followed the writeup pretty honestly
     @Test
@@ -66,5 +67,10 @@ public class JobTests {
     @Test
     public void testToStringDataNotAvailable() {
         Assertions.assertTrue(jobFive.toString().contains("Data not available"));
+    }
+
+    @Test
+    public void testForOops() {
+        Assertions.assertTrue(jobSix.toString().contains("OOPS! This job does not seem to exist."));
     }
 }
